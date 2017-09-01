@@ -1,4 +1,4 @@
-Non-existent page: https://people.rit.edu/dsg6874/230/error/
+Non-existent page: https://people.rit.edu/dsg6874/230/error/spaghetti
 
 Error directory: https://people.rit.edu/dsg6874/230/error/
 
