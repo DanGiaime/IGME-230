@@ -16,6 +16,8 @@
     * Players can turn left/right using A/D
     * Player can launch forward quickly using their voice
 7. ## Screenshots
+  ![Game picture, no fire](pic1.png)
+  ![Game picture, fire](pic2.png)
 8. ## Other
 9. ## About the Developers
   * Dan Giaime
