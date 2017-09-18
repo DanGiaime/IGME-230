@@ -5,11 +5,16 @@
   overflow: hidden;
   color: black;
   font-family: sans-serif;
+  float: left;
+  transition: height 1s;
 }
 
 .menu:hover {
   height: 100%;
-  transition: 1s;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a {
