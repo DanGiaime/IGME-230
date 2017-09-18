@@ -1,0 +1,67 @@
+.project {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#bio {
+  color: #CC0000;
+}
+
+h1 {
+  color: #660000;
+}
+
+h2 {
+  color: #990000;
+}
+
+#me {
+  text-align: center;
+}
+
+.pic {
+  border-radius: 100%;
+  width: 25%;
+  height: 25%;
+}
+
+.exercise {
+  text-decoration: none;
+  font-weight: lighter;
+}
+
+.left {
+  float: left;
+}
+
+.half {
+  width: 50%;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+a:link {
+  color: #FF0000;
+}
+
+a:visited {
+  color: #00FF00;
+}
+
+a:hover {
+  color: #FF00FF;
+}
+
+a:active {
+  color: #0000FF;
+}
+
+body {
+  background-color: #220000;
+}
