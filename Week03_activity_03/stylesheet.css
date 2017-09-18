@@ -1,0 +1,18 @@
+.menu {
+  background-color: gray;
+  height: 1em;
+  width: 200px;
+  overflow: hidden;
+  color: black;
+  font-family: sans-serif;
+}
+
+.menu:hover {
+  height: 100%;
+  transition: 1s;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
