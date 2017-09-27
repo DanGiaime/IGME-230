@@ -1,0 +1,53 @@
+
+nav {
+  background-color: limegreen;
+  width: 100%;
+}
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  font-size: 2em;
+}
+
+nav ul li {
+  display: inline-block;
+  height: 50px;
+  padding: 1.5% 1% 1% 1%;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav ul li a:link {
+  color: green;
+}
+
+nav ul li a:visited {
+  color: tomato;
+}
+
+nav ul li:hover {
+  background-color: firebrick;
+}
+
+body {
+  background-color: lightgreen;
+}
+
+#theGame p {
+  padding: .5%;
+}
+
+section {
+  text-align: center;
+  font-size: 3.2em;
+  color: tomato;
+  width: 72%;
+  min-height: 500px;
+  margin: 0 15%;
+  border: 5px white dotted;
+  background-image: url("../media/clock.png");
+  background-repeat: repeat-x;
+  background-blend-mode: screen;
+}
