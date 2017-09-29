@@ -1,12 +1,14 @@
 
 nav {
-  background-color: limegreen;
+  background-color: #BB7E5D;
   width: 100%;
+  opacity: 1;
 }
 nav ul {
   list-style-type: none;
   text-align: center;
   font-size: 2em;
+  margin-top: 0;
 }
 
 nav ul li {
@@ -20,19 +22,48 @@ nav ul li a {
 }
 
 nav ul li a:link {
-  color: green;
+  color: #DBB650;
 }
 
 nav ul li a:visited {
-  color: tomato;
+  color: #DBB68F;
 }
 
 nav ul li:hover {
-  background-color: firebrick;
+  background-color: #0892A5;
+}
+
+nav ul li a:active {
+  color: #000000;
+}
+
+.active {
+  background-color: #06908F;
 }
 
 body {
-  background-color: lightgreen;
+  margin: 0;
+  position: relative;
+  background-color: #06908F;
+}
+
+
+body::after {
+  background-color: #06908F;
+  background-image: url("../media/clock.png");
+  background-repeat:  no-repeat;
+  background-blend-mode: exclusion;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: inherit;
+  content: "";
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 #theGame p {
@@ -42,12 +73,13 @@ body {
 section {
   text-align: center;
   font-size: 3.2em;
-  color: tomato;
+  color: black;
   width: 72%;
-  min-height: 500px;
+  min-height: 550px;
   margin: 0 15%;
   border: 5px white dotted;
-  background-image: url("../media/clock.png");
-  background-repeat: repeat-x;
-  background-blend-mode: screen;
+}
+
+.update {
+  min-height: 100px;
 }
