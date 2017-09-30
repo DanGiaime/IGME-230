@@ -68,18 +68,49 @@ body::after {
 
 #theGame p {
   padding: .5%;
+  min-height: 400px;
 }
 
 section {
   text-align: center;
-  font-size: 3.2em;
+  font-size: 200%;
   color: black;
   width: 72%;
-  min-height: 550px;
+  min-height: 10%;
   margin: 0 15%;
   border: 5px white dotted;
 }
 
 .update {
   min-height: 100px;
+}
+
+img {
+  width: 20%;
+}
+
+footer {
+  padding: 1%;
+  text-align: center;
+}
+/* Media Queries */
+@media screen and (max-width: 480px) {
+
+  html {
+    padding: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  section {
+    font-size: 1em;
+    min-height: 10%;
+  }
 }
