@@ -1,0 +1,21 @@
+header {
+  padding-top: 10px;
+  background-color: #554455;
+}
+
+body {
+  background-image: url("../images/background.jpg");
+  background-color: #DDDDDD;
+  background-blend-mode: multiply;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-size: 3em;
+  font-family: sans-serif;
+}
+
+#content {
+  margin: 10%;
+  font-size: 1.1em;
+  background-color: #554455;
+}
