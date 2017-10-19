@@ -273,6 +273,14 @@ let lines = ['275. I travel with a boom box. When I get on a plane, I stuff the 
 '3. My belt holds up my pants and my pants have belt loops that hold up the belt. What the fucks really going on down there? Who is the real hero? [Listen]',
 '2. Every book is a childrens book if the kid can read.',
 '1. I used to do drugs. I still do, but I used to, too.',];
-let randomNum = Math.floor(Math.random() * lines.length);
-let contentSection = document.querySelector("#content");
-contentSection.innerHTML = "<p>" + lines[randomNum] + "</p>";
+
+let displayQuote = function() {
+  let randomNum = Math.floor(Math.random() * lines.length);
+  let contentSection = document.querySelector("#content");
+  contentSection.innerHTML = "<p>" + lines[randomNum] + "</p>";
+}
+
+displayQuote();
+
+let button = document.querySelector("#generate");
+button.addEventListener("click", displayQuote); // NOTE the event is named 'click', NOT 'onclick'

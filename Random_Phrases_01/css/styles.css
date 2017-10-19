@@ -19,3 +19,18 @@ body {
   font-size: 1.1em;
   background-color: #554455;
 }
+
+button {
+  background-color: firebrick;
+  height: 100px;
+  width: 200px;
+  font-size: .5em;
+}
+
+button:hover {
+  background-color: red;
+}
+
+button:hover {
+  background-color: pink;
+}
