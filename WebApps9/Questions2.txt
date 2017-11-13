@@ -1,0 +1,23 @@
+What is a limitation of using localStorage on a shared domain like people.rit.edu? What is a workaround that will mitigate this issue?
+Servers like banjo that all of the students are sharing the same set of keys, so that if someone uses highscores as a key, another student's highscores key could wipe out and replace their data.
+One solution is to prefix your key names with something unique, like your RIT web account id. Therefore highScores would become abc1234-highScores for one student, and xyz9876-highScores for someone else, and the keys would never conflict.
+
+What is the difference between local and session storage?
+Session storage is deleted once the window is closed.
+Local storage must be explicitly deleted.
+
+If the user opens up the demo page in a different web browser on the same machine, will their chosen preferences still be visible? Why or why not?
+Local storage is saved locally by that browser and only that browser. Therefore, the chosen preferences will not be visible.
+
+Define serialization
+Converting objects into a format such that they can be transferrable, such as JSON.
+
+What does JSON.stringify() do?
+Returns a JSON string representing the given value.
+
+What does JSON.parse() do?
+Returns an object that the given string represented (basically unserializes the input)
+
+One big issue with the applications we have written this semester is that reloading the page will wipe out all of the user's work (for example the poem they created in Magnetic Poetry, or their pixel art creation in Pixel Artist). Think about the various HW assignments that we have worked on for this Web Apps unit - pick two of them - and describe how they could be improved by utilizing web storage.
+We could store the pixels for pixel art in local storage.
+FOR OUR FAVORITE THINGS, INSTEAD OF GENERATING THE LIST IN JAVASCRIPT EVERYTIME THE PAGE LOADS, WE COULD STORE IT IN LOCAL STORAGE.

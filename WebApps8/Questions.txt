@@ -1,0 +1,26 @@
+True or False. JavaScript Arrays may hold only a single type of value.
+False
+
+Which array operation adds an item to the end of an array?
+push
+
+Which array method can be used to remove items from an array?
+pop
+
+Which array method can be used to copy items to a new array?
+slice
+
+Describe 3 ways to loop through a JavaScript Array.
+for..of, for, forEach
+
+Does Array.filter() modify the old array (the one it is called on), or create a new array?
+New array
+
+What is the type of the object that is returned by document.querySelectorAll()?
+Array
+
+Using method chaining (at least 2 methods) and Math and Number methods, write code that produces a random number with only 2 digits past the decimal point. Be sure to test this in the browser - the JavaScript console is an easy place to do so.
+(Math.floor(Math.random()*10000))/100
+
+Define Fluent Interface.
+Fluent interfaces are software interfaces that read like ordinary written language.
