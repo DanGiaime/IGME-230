@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Daniel Giaime</title>
+  <meta name="description" content="Portfolio for Software Engineer Daniel Giaime.">
+  <meta name="author" content="Daniel Giaime">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+   <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+<header class="main_nav green">
+	<div class="container">
+		<div class="twelve columns">
+			<div class="logo"><a href="#">DANIEL GIAIME</a></div>
+      <h3 class="logo"> Hi, I'm Dan. I'm a Software Enginner from Long Island, New York.</h3>
+		</div>
+	</div>
+</header>
+
+<div class="container main">
+	<div class="row">
+		<div class="four columns portfolio">
+			<a class="image-link" href="images/PitCoB.png"  data-caption="<a href='https://github.com/DanGiaime/PiratesInTheCareOfBeans'>Pirates in the Care of Beans</a> - An exercise in Game AI. Use the cargo of your ship(beans) to guide skeletons away and save the Pirates!"><img alt='Pirates in the Care of Beans' src="images/PitCoB.png" /></a>
+		</div>
+		<div class="four columns portfolio">
+			<a class="image-link" href="images/Pathfinding.png" data-caption="<a href='https://github.com/DanGiaime/Pathfinding'>Pathfinding Visualization Tool</a> - used for visualizing various pathfinding algorithms. "><img alt='Pathfinding' src="images/Pathfinding.png" /></a>
+		</div>
+		<div class="four columns portfolio">
+			<a class="image-link" href="images/RedBlackTree.png" data-caption="<a href='https://dangiaime.github.io/RedBlackTree/'>Red Black Tree</a> An Implementation and write up of the Red Black Tree data structure. Written to teach readers how the structure works at a high level, as well as delve into the structure of how it might be implemented in code."><img alt='RedBlackTree' src="images/RedBlackTree.png" /></a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="six columns portfolio">
+			<a class="image-link" href="images/Utilitarian.gif" data-caption="<a href='https://github.com/DanGiaime/UtilitarianAttachment'>Utilitarian Attachment</a> - A Research Project attempting to model friendship as a slowly building graph. Ideals based off of law of diminishing returns and Dunbar's number."><img alt='Utilitarian Attachment' src="images/Utilitarian.gif" /></a>
+		</div>
+		<div class="six columns portfolio">
+			<a class="image-link" href="images/calculator.png" data-caption="<a href='https://github.com/DanGiaime/CalculatorNotes'>TI-BASIC Program Generation</a> - Generates TI-BASIC calculator programs based on a given study guide(.txt). Recursively Generates a menu structure based on indentation of file."><img alt='Calculator Program Generation' src="images/calculator.png" /></a>
+		</div>
+	</div>
+
+</div><!--Container-->
+
+<div class="row green">
+	<div class="container">
+		<div class="four columns">
+			<img class="avatar" alt='Dan' src="images/dan.jpg" />
+		</div>
+		<div class="eight columns">
+			<h2 class="bio">About Daniel Giaime</h2>
+			<h3 class="bio"> I'm interested in Machine Learning, Artificial Intelligence, and Game Development. If you have opportunities in any of these, contact me.</h3>
+      <p class="bio">Email: dan.giaime@gmail.com <br/>
+        Phone: 516-473-6534<br/>
+        Based in Rochester, NY</p>
+		</div>
+	</div>
+</div><!--Row Green-->
+
+<footer>
+	<div class="container">
+		<div class="row twelve columns">
+			<ul class="social">
+			<li class="github"><a href="https://github.com/DanGiaime/"><i class="fa fa-github-square fa-lg"></i></a></li>
+			<li class="linkedin"><a href="https://www.linkedin.com/in/danielgiaime/"><i class="fa fa-linkedin-square fa-lg"></i></a></li>
+      <li class="resume"><a href="files/giaime_dan_resume.pdf"><i class="fa fa-file-pdf-o fa-lg"></i></a></li>
+			</ul>
+		</div>
+		<div class="row twelve columns">
+			<p class="copyright">&copy; 2017 Daniel Giaime. All Rights Reserved.</p>
+		</div>
+	</div>
+</footer>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="scripts/jquery.magnific-popup.js"></script>
+  <script type="text/javascript">
+	 $('.image-link').magnificPopup({
+  type: 'image',
+  mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+  image: {
+    titleSrc: function(item) {
+              return item.el.attr("data-caption");
+             }
+  },
+  zoom: {
+    enabled: true, // By default it's false, so don't forget to enable it
+    duration: 300, // duration of the effect, in milliseconds
+    easing: 'ease-in-out', // CSS transition easing function
+    opener: function(openerElement) {
+      return openerElement.is('img') ? openerElement : openerElement.find('img');
+    }
+  }
+
+});	</script>
+</body>
+</html>
