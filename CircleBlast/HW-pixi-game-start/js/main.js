@@ -287,7 +287,7 @@ function createExplosion(x,y,frameWidth,frameHeight){
   // http://pixijs.download/dev/docs/PIXI.extras.AnimatedSprite.html
   // the animation frames are 64x64 pixels
   let w2 = frameWidth/2;
-  let h2 = frameHeightn;
+  let h2 = frameHeight/2;
   let expl = new PIXI.extras.AnimatedSprite(explosionTextures);
   expl.x = x - w2; // we want the explosions to appear at the center of the circle
   expl.y = y - h2; // ditto
