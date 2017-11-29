@@ -19,7 +19,7 @@ let stage;
 
 // game variables
 let startScene;
-let gameScene,ship,scoreLabel,lifeLabel,shootSound,hitSound,fireballSound;
+let gameScene,ship,scoreLabel,lifeLabel,shootSound,hitSound,fireballSound, gameOverScoreLabel;
 let gameOverScene;
 
 let circles = [];
@@ -35,6 +35,7 @@ let paused = true;
 function increaseScoreBy(value) {
   score += value;
   scoreLabel.text = `Score ${score}`;
+  gameOverScoreLabel.text = `Score ${score}`;
 }
 
 function decreaseLifeBy(value) {
@@ -139,7 +140,6 @@ function createLabelsAndButtons(){
   scoreLabel.x = 5;
   scoreLabel.y = 5;
   gameScene.addChild(scoreLabel);
-  increaseScoreBy(0);
 
   // 2B - make life label
   lifeLabel = new PIXI.Text();
@@ -163,6 +163,14 @@ function createLabelsAndButtons(){
   gameOverText.x = 100;
   gameOverText.y = sceneHeight/2 - 160;
   gameOverScene.addChild(gameOverText);
+
+  // 2A - make score label
+  gameOverScoreLabel = new PIXI.Text();
+  gameOverScoreLabel.style = textStyle;
+  gameOverScoreLabel.x = 5;
+  gameOverScoreLabel.y = 5;
+  gameOverScene.addChild(gameOverScoreLabel);
+  increaseScoreBy(0);
 
   // 3B - make "play again?" button
   let playAgainButton = new PIXI.Text("Play Again?");
