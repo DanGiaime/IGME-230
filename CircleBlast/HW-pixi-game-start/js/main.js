@@ -50,6 +50,22 @@ function startGame() {
 
 }
 
+// Clicking the button calls startGame()
+function startGame(){
+  startScene.visible = false;
+  gameOverScene.visible = false;
+  gameScene.visible = true;
+  levelNum = 1;
+  score = 0;
+  life = 100;
+  increaseScoreBy(0);
+  decreaseLifeBy(0);
+  ship.x = 300;
+  ship.y = 550;
+  loadLevel();
+}
+
+
 function createLabelsAndButtons(){
   let buttonStyle = new PIXI.TextStyle({
     fill: 0xFF0000,
@@ -150,8 +166,13 @@ function createLabelsAndButtons(){
 
 }
 
+function loadLevel(){
+	createCircles(levelNum * 5);
+	paused = false;
+}
+
 function gameLoop(){
-	// if (paused) return; // keep this commented out for now
+	if (paused) return; // keep this commented out for now
 
   // #1 - Calculate "delta time"
   let dt = 1/app.ticker.FPS;
@@ -173,14 +194,36 @@ function gameLoop(){
   ship.x = clamp (newX, 0+w2, sceneWidth-w2);
   ship.y = clamp (newY, 0+h2, sceneHeight-h2);
 
-	// #3 - Move Circles
+  // #3 - Move Circles
+  for (let c of circles){
+    c.move(dt);
+    if (c.x <= c.radius || c.x >= sceneWidth-c.radius){
+      c.reflectX();
+      c.move(dt);
+    }
+    if (c.y <= c.radius || c.y >= sceneHeight-c.radius){
+      c.reflectY();
+      c.move(dt);
+    }
+  }
 
 
 	// #4 - Move Bullets
   //createCircles(100);
 
 	// #5 - Check for Collisions
+  for (let c of circles) {
+    // #5a - circles and Bullets
+    // TODO
 
+    // #5b - circles and ship
+    if (c.isAlive && rectsIntersect(c, ship)) {
+      hitSound.play();
+      gameScene.removeChild(c);
+      c.isAlive = false;
+      decreaseLifeBy(20);
+    }
+  }
 
 	// #6 - Now do some clean up
 
