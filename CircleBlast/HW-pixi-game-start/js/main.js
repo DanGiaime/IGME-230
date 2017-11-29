@@ -231,7 +231,7 @@ function gameLoop(){
       // #5A - circles 8, bullets
       if (rectsIntersect(c,b)){
         fireballSound.play();
-        //createExplosion(c.x,c.y,64,60); // we will implement this soon
+        createExplosion(c.x,c.y,64,60); // we will implement this soon
         gameScene.removeChild(c);
         c.isAlive = false;
         gameScene.removeChild(b);
@@ -283,6 +283,21 @@ function fireBullet(e){
    shootSound.play();
 }
 
+function createExplosion(x,y,frameWidth,frameHeight){
+  // http://pixijs.download/dev/docs/PIXI.extras.AnimatedSprite.html
+  // the animation frames are 64x64 pixels
+  let w2 = frameWidth/2;
+  let h2 = frameHeightn;
+  let expl = new PIXI.extras.AnimatedSprite(explosionTextures);
+  expl.x = x - w2; // we want the explosions to appear at the center of the circle
+  expl.y = y - h2; // ditto
+  expl.animationSpeed = 1/7;
+  expl.loop = false;
+  expl.onComplete = e=>gameScene.removeChild(expl);
+  explosions.push(expl);
+  gameScene.addChild(expl);
+  expl.play();
+}
 
 function end() {
   paused = true;
@@ -347,7 +362,8 @@ function setup() {
   	src: ['sounds/fireball.mp3']
   });
 
-	// #7 - Load sprite sheet
+  // #7 - Load sprite sheet
+  explosionTextures = loadSpriteSheet();
 
   // #8 - Start update loop
   app.ticker.add(gameLoop);
