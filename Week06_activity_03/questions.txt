@@ -1,0 +1,45 @@
+Exactly how many parent elements can an element on a web page have?
+        1
+
+What are the child elements of the <ul> tag in more-dom-4.html?
+        <li><a href="http://www.apple.com">Apple</a></li>
+        <li><a href="http://www.google.com">Google</a></li>
+
+
+What is the first-child of the <ul> tag in more-dom-4.html?
+        <li><a href="http://www.apple.com">Apple</a></li>
+
+What is the last-child of the <ul> tag in more-dom-4.html?
+        <li><a href="http://www.google.com">Google</a></li>
+
+
+What is the next-sibling of the "Google" <li> tag in more-dom-4.html?
+        null
+
+What is the previous-sibling of the "Google" <li> tag in more-dom-4.html?
+        <li><a href="http://www.apple.com">Apple</a></li>
+
+
+What is the first-child of the "Google" <li> tag in more-dom-4.html?
+        <a href="http://www.google.com">Google</a>
+
+What is the parent of the "Google" <li> tag in more-dom-4.html?
+        <ul>
+
+What is a block?
+        code between curly braces
+
+Define scope
+        the area within code in which a variable exists.
+
+Declaring a variable with let or const at the top level of the <script> tag (outside of any other blocks or functions) gives it what kind of scope?
+        script scope
+
+Declaring a variable with let or const inside of a for loop of a function gives it what kind of scope?
+        local scope
+
+What does the debugger; statement do?
+        Makes a breakpoint in the code on that line.
+
+What does D.R.Y. stand for and mean? (see next section below)
+        Dont Repeat Yourself. It means don't rewrite code if it can be avoided.

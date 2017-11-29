@@ -1,0 +1,17 @@
+1. What versions of JavaScript will we be covering in this course?
+        ES5, ES6
+
+2. What JavaScript keyword declares variables? 
+        let, var
+
+3. What javaScript keyword declares constants?
+        const
+
+4. What happens when you try to change the value of a previously decalred constant value?
+        It will change.
+
+5. What are 5 built-in Javascript "primitive" data types?
+        Boolean, Number, String, Undefined, Null.
+
+6. What kinds of values can a Number type hold?
+        (2^53 - 1) to -(2^53 - 1)

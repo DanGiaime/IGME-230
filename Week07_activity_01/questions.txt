@@ -1,0 +1,16 @@
+In programming, what is a literal value?
+Literally typing a value that is of a certain type. For example, an integer literal would be 5. It's just en integer value you put directly into your code.
+How do you iterate over the keys and values of an object?
+for..in
+What is the difference between for...in and for...of? (You don't want to get these 2 mixed up!)
+for...in is used to iterate through the properties of an object. for...of is used to iterate through items in a collection.
+List 3 JavaScript value types.
+String, Number, undefined
+List 3 JavaScript reference types.
+Array, Function, and Object
+What does Object.seal() do?
+Prevents new properties from being added and existing properties from being deleted, but allows givin new values to the existing properties.
+What does Object.freeze() do?
+Makes an object's properties immutable, prevents new properties from being added and existing properties from being deleted
+What is wrong with the following code?
+need to use this,x this.y, this.speed
