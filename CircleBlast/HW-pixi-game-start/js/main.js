@@ -226,14 +226,35 @@ function gameLoop(){
   }
 
 	// #6 - Now do some clean up
+  bullets = bullets.filter(b=>b.isAlive);
+  circles = circles.filter(c=>c.isAlive);
+  explosions = explosions.filter(e=>e.playing);
 
-
-	// #7 - Is game over?
-
+  // #7 - Is game over?
+  if (life <= 0){
+  	end();
+  	return; // return here so we skip #8 below
+  }
 
 	// #8 - Load next level
 
 
+}
+
+function end() {
+  paused = true;
+
+  circles.forEach(c=>gameScene.removeChild(c));
+  circles = [];
+
+  bullets.forEach(b=>gameScene.removeChild(b));
+  bullets = [];
+
+  explosions.forEach(e=>gameScene.removeChild(e));
+  explosions = [];
+
+  gameOverScene.visible = true;
+  gameScene.visible = false;
 }
 
 function createCircles(numCircles){
