@@ -175,8 +175,9 @@ function gameLoop(){
 
 	// #3 - Move Circles
 
+
 	// #4 - Move Bullets
-  createCircles(100);
+  //createCircles(100);
 
 	// #5 - Check for Collisions
 
