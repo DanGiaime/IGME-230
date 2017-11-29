@@ -276,10 +276,33 @@ function fireBullet(e){
   // let mouseX = e.clientX - rect.x;
   // let mouseY = e.clientY - rect.y;
   // console.log('${mouseX},${mouseY}');
+   if(levelNum > 1) {
+     fireTripleBullet(e);
+     return;
+   }
    if (paused) return;
    let b = new Bullet(0xFFFFFF,ship.x,ship.y);
    bullets.push(b);
    gameScene.addChild(b);
+   shootSound.play();
+}
+
+
+function fireTripleBullet(e){
+  // let rect = app.view.getBoundingClientRect();
+  // let mouseX = e.clientX - rect.x;
+  // let mouseY = e.clientY - rect.y;
+  // console.log('${mouseX},${mouseY}');
+   if (paused) return;
+   let b = new Bullet(0xFFFFFF,ship.x,ship.y);
+   bullets.push(b);
+   gameScene.addChild(b);
+   let c = new Bullet(0xFFFFFF,ship.x - 10,ship.y);
+   bullets.push(c);
+   gameScene.addChild(c);
+   let d = new Bullet(0xFFFFFF,ship.x + 10,ship.y);
+   bullets.push(d);
+   gameScene.addChild(d);
    shootSound.play();
 }
 
