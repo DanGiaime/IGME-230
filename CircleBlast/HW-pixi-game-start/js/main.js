@@ -65,6 +65,18 @@ function startGame(){
   loadLevel();
 }
 
+function loadSpriteSheet() {
+  let spriteSheet = PIXI.BaseTexture.fromImage("images/explosions.png");
+  let width = 64;
+  let height = 64;
+  let numFrames = 16;
+  let textures = [];
+  for (let i = 0; i < numFrames; i++) {
+    let frame = new PIXI.Texture(spriteSheet, new PIXI.Rectangle(i*width, 64, width, height));
+    textures.push(frame);
+  }
+  return textures;
+}
 
 function createLabelsAndButtons(){
   let buttonStyle = new PIXI.TextStyle({
@@ -208,21 +220,35 @@ function gameLoop(){
   }
 
 
-	// #4 - Move Bullets
-  //createCircles(100);
+  // #4 - Move Bullets
+	for (let b of bullets){
+		b.move(dt);
+	}
 
 	// #5 - Check for Collisions
-  for (let c of circles) {
-    // #5a - circles and Bullets
-    // TODO
+  for (let c of circles){
+    for (let b of bullets){
+      // #5A - circles 8, bullets
+      if (rectsIntersect(c,b)){
+        fireballSound.play();
+        //createExplosion(c.x,c.y,64,60); // we will implement this soon
+        gameScene.removeChild(c);
+        c.isAlive = false;
+        gameScene.removeChild(b);
+        b.isAlive = false;
+        increaseScoreBy(1);
+      }
 
-    // #5b - circles and ship
-    if (c.isAlive && rectsIntersect(c, ship)) {
+      if (b.y < -10) b.isAlive = false;
+    }
+
+    // #5B - circles & ship
+    if (c.isAlive && rectsIntersect(c,ship)){
       hitSound.play();
       gameScene.removeChild(c);
       c.isAlive = false;
       decreaseLifeBy(20);
-    }
+    }// All done checking for collisions,
   }
 
 	// #6 - Now do some clean up
@@ -236,10 +262,27 @@ function gameLoop(){
   	return; // return here so we skip #8 below
   }
 
-	// #8 - Load next level
+  // #8 - Load next level
+  if (circles.length == 0){
+  	levelNum ++;
+  	loadLevel();
+  }
 
 
 }
+
+function fireBullet(e){
+  // let rect = app.view.getBoundingClientRect();
+  // let mouseX = e.clientX - rect.x;
+  // let mouseY = e.clientY - rect.y;
+  // console.log('${mouseX},${mouseY}');
+   if (paused) return;
+   let b = new Bullet(0xFFFFFF,ship.x,ship.y);
+   bullets.push(b);
+   gameScene.addChild(b);
+   shootSound.play();
+}
+
 
 function end() {
   paused = true;
@@ -309,7 +352,8 @@ function setup() {
   // #8 - Start update loop
   app.ticker.add(gameLoop);
 
-	// #9 - Start listening for click events on the canvas
+  // #9 - Start listening for click events on the canvas
+  app.view.onclick = fireBullet;
 
 	// Now our `startScene` is visible
 	// Clicking the button calls startGame()
