@@ -35,7 +35,6 @@ let paused = true;
 function increaseScoreBy(value) {
   score += value;
   scoreLabel.text = `Score ${score}`;
-  gameOverScoreLabel.text = `Score ${score}`;
 }
 
 function decreaseLifeBy(value) {
@@ -341,6 +340,8 @@ function end() {
 
   explosions.forEach(e=>gameScene.removeChild(e));
   explosions = [];
+
+  gameOverScoreLabel.text = scoreLabel.text;
 
   gameOverScene.visible = true;
   gameScene.visible = false;
