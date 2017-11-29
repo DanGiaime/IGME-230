@@ -150,6 +150,87 @@ function createLabelsAndButtons(){
 
 }
 
+function gameLoop(){
+	// if (paused) return; // keep this commented out for now
+
+  // #1 - Calculate "delta time"
+  let dt = 1/app.ticker.FPS;
+  if (dt > 1/12) dt=1/12;
+
+  // #2 - Move Ship
+  let mousePosition = app.renderer.plugins.interaction.mouse.global;
+  //ship.position = mousePosition;
+
+  let amt = 6 * dt; // at 60 FPS would move about 10% of distance per update
+
+  // lerp (linear interpolate) the x & y values with lerp()
+  let newX = lerp(ship.x, mousePosition.x, amt);
+  let newY = lerp(ship.y, mousePosition.y, amt);
+
+  // keep the ship on the screen with clamp()
+  let w2 = ship.width/2;
+  let h2 = ship.height/2;
+  ship.x = clamp (newX, 0+w2, sceneWidth-w2);
+  ship.y = clamp (newY, 0+h2, sceneHeight-h2);
+
+	// #3 - Move Circles
+  class Circle extends PIXI.Graphics{
+    constructor(radius, color=0xFF0000, x=0, y=0){
+      super();
+      this.beginFill(color);
+      this.drawCircle(0,0,radius);
+      this.endFill();
+      this.x = x;
+      this.y = y;
+      this.radius = radius; // variables
+      this.fwd = getRandomUnitVector();
+      this.speed = 50;
+      this.isAlive = true;
+    }
+
+    move(dt=1/60) {
+      this.x += this.fwd.x * this.speed * dt;
+      this.y += this.fwd.y * this.speed * dt;
+    }
+
+    reflectX() {
+      this.fwd.x * -1;
+    }
+
+    reflectY() {
+      this.fwd.y * -1;
+    }
+  }
+
+
+	// #4 - Move Bullets
+  createCircles(100);
+
+	// #5 - Check for Collisions
+
+
+	// #6 - Now do some clean up
+
+
+	// #7 - Is game over?
+
+
+	// #8 - Load next level
+
+
+}
+
+function createCircles(numCircles){
+  for(let i=0;i<numCircles;i++){
+    let c = new Circle(10,0xFFFF00);
+    c.x = Math.random() * (sceneWidth - 50) + 25;
+    c.y = Math.random() * (sceneHeight - 400) + 25;
+    circles.push(c);
+    gameScene.addChild(c);
+  }
+}
+
+
 function setup() {
 	stage = app.stage;
 	// #1 - Create the `start` scene
@@ -174,10 +255,22 @@ function setup() {
   gameScene.addChild(ship);
 
 	// #6 - Load Sounds
+  shootSound = new Howl({
+  	src: ['sounds/shoot.wav']
+  });
+
+  hitSound = new Howl({
+  	src: ['sounds/hit.mp3']
+  });
+
+  fireballSound = new Howl({
+  	src: ['sounds/fireball.mp3']
+  });
 
 	// #7 - Load sprite sheet
 
-	// #8 - Start update loop
+  // #8 - Start update loop
+  app.ticker.add(gameLoop);
 
 	// #9 - Start listening for click events on the canvas
 
