@@ -1,0 +1,21 @@
+ANIMATION
+-------
+What is the difference between raster and vector graphics?
+Vector resizes more easily due to being a list of relatively placed points instead of exlpicitly placed pixels.
+
+What are the advantages of SVG over other graphical methods in the browser?
+Responsive Design, as SVG is "scalabe" and therefore will be more asily changed to different sizes without appearing to lose resolution
+
+-------
+
+DEMO 4
+-------
+How often is requestAnimationFrame called?
+Never in this demo
+
+What does getIntersectionList do?
+Gets the list of objects intersecting with the given bounding box
+
+What does getBBox() return?
+The bounding box of the object
+--------
