@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        svg { position:absolute }
+        #player { fill:red }
+    </style>
+    
+     <script>
+     
+     "use strict";
+     let svg, xmlns, enemy, scoreElement, score, player;
+     
+     function init(){
+	    svg = document.querySelector( 'svg' ),
+        xmlns = 'http://www.w3.org/2000/svg',
+        player = svg.children[ 0 ],
+        enemy = svg.children[1],
+        scoreElement = svg.children[2],
+        score = 0;
+        window.addEventListener( 'mousemove', hitTest );
+    
+    	positionEnemy();
+	}
+	
+    function positionEnemy() {
+      enemy.setAttribute( 'cx', Math.random() * window.innerWidth );
+      enemy.setAttribute( 'cy', Math.random() * window.innerHeight );
+    }
+         
+    function setRandomPosition(obj) {
+        obj.setAttribute( 'cx', Math.random() * window.innerWidth );
+        obj.setAttribute( 'cy', Math.random() * window.innerHeight );
+    }
+    
+    function destroyEnemy() {
+      score += 10;
+      displayScore();
+      positionEnemy();
+    }
+         
+    function displayScore() {
+      scoreElement.textContent = 'score: ' + score;
+    }
+    
+    function hitTest ( e ) {
+        let hitlist = svg.getIntersectionList( player.getBBox(), null );
+        
+        for(var hit of hitlist) {
+            if(hit.getAttribute("id") == "enemy") {
+                destroyEnemy();
+                createBlocker();
+            }
+            else if(hit.getAttribute("id") == "blocker") {
+                score = 0;
+                displayScore();
+            }
+        }
+        
+        player.setAttribute( 'cx', e.clientX + 'px' );
+        player.setAttribute( 'cy', e.clientY + 'px' );
+    }
+         
+    function createBlocker() {
+        var newBlocker = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        newBlocker.setAttribute("r", "20");
+        setRandomPosition(newBlocker);
+        newBlocker.setAttribute("id", "blocker");
+        newBlocker.setAttribute("fill", "red");
+        svg.appendChild(newBlocker);
+    }
+    
+    window.onload=init;
+   
+    </script>
+</head>
+<body>
+    <svg width='100%' height='100%'>
+        <circle id='player' r='50' cx='50%' cy='50%' />
+        <circle id='enemy' r='20' cx='0' cy='0' />
+        <text id="score" x="0" y="35" font-family="Verdana" font-size="35">
+          score: 0
+        </text>
+    </svg>
+    
+</body>
+
+</html>
