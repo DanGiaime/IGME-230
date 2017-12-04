@@ -14,10 +14,16 @@
     circle1.setAttribute("r", "25");
     let counter = 0;
     let text = document.createElementNS("http://www.w3.org/2000/svg", 'text' );
+    let ellipse = document.createElementNS("http://www.w3.org/2000/svg", 'ellipse');
+    ellipse.setAttribute("cx", window.innerWidth / 2);
+    ellipse.setAttribute("cy", window.innerHeight / 2);
+    ellipse.setAttribute("rx", 5);
+    ellipse.setAttribute("ry", 10);
     text.setAttribute("x", "0");
     text.setAttribute("y", "0");
     text.innerHTML = "wow";
     svg.appendChild(text);
+    svg.appendChild(ellipse);
     let squares = [];
       
     svg.appendChild(circle1);
@@ -37,6 +43,7 @@
     function animate() {
       if(counter < 700) {
         moveDiagonallyBackwards(text);
+        increaseScaleEllipse(ellipse);
         rotateLeft(text);
         for(var obj of squares) {
           rotateRight(obj);
@@ -46,6 +53,7 @@
         counter++;
       }
       else if(counter < 1400) {
+        decreaseScaleEllipse(ellipse);
         moveDiagonally(text);
         rotateRight(text);
         for(var obj of squares) {
@@ -60,6 +68,16 @@
       }
       requestAnimationFrame( animate );
     };
+      
+    function increaseScaleEllipse(obj) {
+      obj.setAttribute("rx", parseFloat(obj.getAttribute("rx")) + .1);
+      obj.setAttribute("ry", parseFloat(obj.getAttribute("ry")) + .2);
+    }
+      
+    function decreaseScaleEllipse(obj) {
+      obj.setAttribute("rx", parseFloat(obj.getAttribute("rx")) - .1);
+      obj.setAttribute("ry", parseFloat(obj.getAttribute("ry")) - .2);
+    }
       
     function moveDiagonally(obj) {
       obj.setAttribute("x", (parseInt(obj.getAttribute("x")) + 1) % window.innerWidth);
